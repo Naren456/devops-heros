@@ -1,2 +1,1 @@
-Learning Git
-Learning Git more
+This file was created in the selected branch commit and will be available on main after cherry-pick.
