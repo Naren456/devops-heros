@@ -1,1 +1,6 @@
 [   21105ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8080/favicon.ico:0
+[ 1635711ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8081/favicon.ico:0
+[ 1636269ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8082/favicon.ico:0
+[ 1636845ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3001/favicon.ico:0
+[ 1640919ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8001/favicon.ico:0
+[ 1641663ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ http://localhost:8083/favicon.ico:0
