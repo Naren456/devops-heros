@@ -3,11 +3,11 @@
 ## Student Details
 
 - **Name:** Naren456
-- **Enrollment Number:** <!-- TODO: replace with your enrollment number -->
+- **Enrollment Number:** 24bcs10225
 - **GitHub:** narendrase666@gmail.com
 - **Repository:** devops-heros / `assignment/docker-files-images/`
 
-> Note: Update the enrollment number above before submission.
+> Note: Enrollment number 24bcs10225.
 
 ## Task 1: Multi-Stage Dockerfile
 
