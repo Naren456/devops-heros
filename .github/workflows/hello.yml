@@ -1,0 +1,17 @@
+name: Hello Github Actions
+on:
+    workflow_dispatch
+jobs:
+    hello:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print message
+              run: echo "Hello from Github Actions"
+            - name: Show Date
+              run: date
+            - name: Show operating system
+              run: uname -a
+
+
+              
+            
