@@ -1,0 +1,80 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: s11demo
+  namespace: s11
+spec:
+  replicas: 2
+  selector:
+    matchLabels: { app: s11demo }
+  template:
+    metadata:
+      labels: { app: s11demo }
+    spec:
+      containers:
+        - name: web
+          image: nginx:alpine
+          ports: [{ containerPort: 80 }]
+---
+# 1. ClusterIP (default): reachable only inside the cluster
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-clusterip
+  namespace: s11
+spec:
+  type: ClusterIP
+  selector: { app: s11demo }
+  ports:
+    - port: 80
+      targetPort: 80
+---
+# 2. NodePort: exposed on every node's IP at a static high port
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-nodeport
+  namespace: s11
+spec:
+  type: NodePort
+  selector: { app: s11demo }
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30080
+---
+# 3. LoadBalancer: NodePort + external LB (stays <pending> on bare kind)
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-loadbalancer
+  namespace: s11
+spec:
+  type: LoadBalancer
+  selector: { app: s11demo }
+  ports:
+    - port: 80
+      targetPort: 80
+---
+# 4. ExternalName: DNS alias to an outside name (no selector, no ClusterIP)
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-externalname
+  namespace: s11
+spec:
+  type: ExternalName
+  externalName: example.com
+---
+# 5. Headless: no virtual IP; DNS returns the pod IPs directly
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-headless
+  namespace: s11
+spec:
+  clusterIP: None
+  selector: { app: s11demo }
+  ports:
+    - port: 80
+      targetPort: 80

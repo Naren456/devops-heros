@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recreate-demo
+  namespace: s10
+  labels: { app: recreate-demo }
+spec:
+  replicas: 2
+  strategy:
+    type: Recreate  # kill all old pods BEFORE creating new ones (downtime)
+  selector:
+    matchLabels: { app: recreate-demo }
+  template:
+    metadata:
+      labels: { app: recreate-demo }
+    spec:
+      containers:
+        - name: web
+          image: nginx:alpine
+          ports: [{ containerPort: 80 }]
